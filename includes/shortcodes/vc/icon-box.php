@@ -1,6 +1,5 @@
 <?php
 
-
 // create icon field
 function icon_field($settings, $value)
 {

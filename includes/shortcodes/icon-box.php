@@ -7,31 +7,7 @@ if( is_admin() ) {
 add_action( 'wp_enqueue_scripts', 'getbowtied_visual_composer_deprecated_linea_styles', 99 );
 function getbowtied_visual_composer_deprecated_linea_styles() {
 	wp_enqueue_style( 'shopkeeper-font-linea-arrows',
-		plugins_url( 'fonts/linea-fonts/arrows/styles.css', dirname( __FILE__ ) )
-	);
-
-	wp_enqueue_style( 'shopkeeper-font-linea-basic',
-		plugins_url( 'fonts/linea-fonts/basic/styles.css', dirname( __FILE__ ) )
-	);
-
-	wp_enqueue_style( 'shopkeeper-font-linea-basic_elaboration',
-		plugins_url( 'fonts/linea-fonts/basic_elaboration/styles.css', dirname( __FILE__ ) )
-	);
-
-	wp_enqueue_style( 'shopkeeper-font-linea-ecommerce',
-		plugins_url( 'fonts/linea-fonts/ecommerce/styles.css', dirname( __FILE__ ) )
-	);
-
-	wp_enqueue_style( 'shopkeeper-font-linea-music',
-		plugins_url( 'fonts/linea-fonts/music/styles.css', dirname( __FILE__ ) )
-	);
-
-	wp_enqueue_style( 'shopkeeper-font-linea-software',
-		plugins_url( 'fonts/linea-fonts/software/styles.css', dirname( __FILE__ ) )
-	);
-
-	wp_enqueue_style( 'shopkeeper-font-linea-weather',
-		plugins_url( 'fonts/linea-fonts/weather/styles.css', dirname( __FILE__ ) )
+		plugins_url( 'fonts/linea-fonts/styles.css', dirname( __FILE__ ) )
 	);
 }
 
