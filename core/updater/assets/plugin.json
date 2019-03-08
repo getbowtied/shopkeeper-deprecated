@@ -22,7 +22,7 @@
     },
 
 	"banners": {
-		"low": "https://raw.githubusercontent.com/getbowtied/shopkeeper-deprecated/master/core/updater/assets/images/shopkeeper-banner-772x250.png",
-		"high": "https://raw.githubusercontent.com/getbowtied/shopkeeper-deprecated/master/core/updater/assets/images/shopkeeper-banner-1544x500.png"
+		"low": "https://raw.githubusercontent.com/getbowtied/shopkeeper-deprecated/master/core/updater/assets/images/shopkeeper-deprecated-772x250.png",
+		"high": "https://raw.githubusercontent.com/getbowtied/shopkeeper-deprecated/master/core/updater/assets/images/shopkeeper-deprecated-1544x500.png"
 	}
 }
