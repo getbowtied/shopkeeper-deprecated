@@ -25,12 +25,12 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 }
 
 // Plugin Updater
-// require 'core/updater/plugin-update-checker.php';
-// $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-// 	'https://raw.githubusercontent.com/getbowtied/shopkeeper-deprecated/master/core/updater/assets/plugin.json',
-// 	__FILE__,
-// 	'shopkeeper-deprecated'
-// );
+require 'core/updater/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://raw.githubusercontent.com/getbowtied/shopkeeper-deprecated/master/core/updater/assets/plugin.json',
+	__FILE__,
+	'shopkeeper-deprecated'
+);
 
 global $theme;
 $theme = wp_get_theme();
