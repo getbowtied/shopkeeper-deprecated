@@ -38,17 +38,10 @@ if ( $theme->template == 'shopkeeper') {
 
 	include_once('includes/shortcodes/icon-box.php');
 	
-	/******************************************************************************/
-	/* Add Shortcodes to VC *******************************************************/
-	/******************************************************************************/
-
-	if ( defined(  'WPB_VC_VERSION' ) ) {
-		
-		add_action( 'init', 'getbowtied_visual_composer_deprecated_shortcodes' );
-		function getbowtied_visual_composer_deprecated_shortcodes() {
-			
-			// Add new WP shortcodes to VC
+	// Add new WP shortcodes to VC
+	add_action( 'plugins_loaded', function() {
+		if ( defined(  'WPB_VC_VERSION' ) ) {
 			include_once('includes/shortcodes/vc/icon-box.php');
 		}
-	}
+	});
 }
