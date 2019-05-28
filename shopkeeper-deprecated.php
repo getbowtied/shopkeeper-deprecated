@@ -40,8 +40,18 @@ if ( $theme->template == 'shopkeeper') {
 	
 	// Add new WP shortcodes to VC
 	add_action( 'plugins_loaded', function() {
+
 		if ( defined(  'WPB_VC_VERSION' ) ) {
+
+			// Icon Box VC Element
 			include_once('includes/shortcodes/vc/icon-box.php');
+
+			// Modify and remove existing shortcodes from VC
+			include_once('includes/wpbakery/custom_vc.php');
+			
+			// VC Templates
+			$vc_templates_dir = dirname(__FILE__) . '/includes/wpbakery/vc_templates/';
+			vc_set_shortcodes_templates_dir($vc_templates_dir);
 		}
 	});
 }
