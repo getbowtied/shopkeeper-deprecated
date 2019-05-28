@@ -4,13 +4,13 @@
  * Plugin Name:       		Shopkeeper Deprecated Features
  * Plugin URI:        		https://shopkeeper.wp-theme.design/
  * Description:       		Old features of Shopkeeper theme that are no longer used.
- * Version:           		1.0
+ * Version:           		1.1
  * Author:            		GetBowtied
  * Author URI:				https://getbowtied.com
  * Text Domain:				shopkeeper-deprecated
  * Domain Path:				/languages/
  * Requires at least: 		5.0
- * Tested up to: 			5.1
+ * Tested up to: 			5.2.1
  *
  * @package  Shopkeeper Deprecated
  * @author   GetBowtied
@@ -43,7 +43,7 @@ if ( $theme->template == 'shopkeeper') {
 	// Add new WP shortcodes to VC
 	add_action( 'plugins_loaded', function() {
 		global $theme, $parent_theme;
-		
+
 		if ( defined(  'WPB_VC_VERSION' ) ) {
 
 			// Icon Box VC Element
