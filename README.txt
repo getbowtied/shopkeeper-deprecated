@@ -16,7 +16,7 @@ Deprecated:
 == Changelog ==
 
 = 1.1 =
-- Row and Inner Row Options for WPBakery's Page Builder
+- Added: Row and Inner Row Options for WPBakery's Page Builder
 
 = 1.0 =
 - Initial Version

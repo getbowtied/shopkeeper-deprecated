@@ -13,7 +13,7 @@
 
 	"sections": {
 		"description": "<p>Shopkeeper Deprecated Features is a new plugin coming with the theme offering a fallback for old features that are no longer used.</p><h4>Deprecated:</h4><ul><li>Linea Icon Font and related Icon Box element in WPBakery's Page Builder</li><li>Row and Inner Row Options for WPBakery's Page Builder</li></ul>",
-		"changelog": "<h4>1.1</h4><ul><li>Row and Inner Row Options for WPBakery's Page Builder</li></ul><h4>1.0</h4><ul><li>Initial Version</li></ul>"
+		"changelog": "<h4>1.1</h4><ul><li>Added: Row and Inner Row Options for WPBakery's Page Builder</li></ul><h4>1.0</h4><ul><li>Initial Version</li></ul>"
 	},
 	
 	"icons" : {
