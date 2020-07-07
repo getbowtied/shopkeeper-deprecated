@@ -32,32 +32,24 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'shopkeeper-deprecated'
 );
 
-global $theme;
-$theme = wp_get_theme();
-$parent_theme = $theme->parent();
+add_action( 'after_setup_theme', function() {
 
-if ( $theme->template == 'shopkeeper') {
+    // Shopkeeper Dependent Components
+    if( function_exists('shopkeeper_theme_slug') ) {
+        include_once( dirname(__FILE__) . '/includes/shortcodes/icon-box.php');
 
-	include_once( dirname(__FILE__) . '/includes/shortcodes/icon-box.php');
+        if ( defined(  'WPB_VC_VERSION' ) ) {
 
-	// Add new WP shortcodes to VC
-	add_action( 'plugins_loaded', function() {
-		global $theme, $parent_theme;
+            // Icon Box VC Element
+            include_once( dirname(__FILE__) . '/includes/shortcodes/vc/icon-box.php');
 
-		if ( defined(  'WPB_VC_VERSION' ) ) {
+            // Modify and remove existing shortcodes from VC
+            include_once( dirname(__FILE__) . '/includes/wpbakery/custom_vc.php');
 
-			// Icon Box VC Element
-			include_once( dirname(__FILE__) . '/includes/shortcodes/vc/icon-box.php');
+            // VC Templates
+            $vc_templates_dir = dirname(__FILE__) . '/includes/wpbakery/vc_templates/';
+            vc_set_shortcodes_templates_dir($vc_templates_dir);
+        }
+    }
 
-			if( $theme->version >= '2.8.4' || ( !empty($parent_theme) && $parent_theme->version >= '2.8.4' ) ) {
-
-				// Modify and remove existing shortcodes from VC
-				include_once( dirname(__FILE__) . '/includes/wpbakery/custom_vc.php');
-
-				// VC Templates
-				$vc_templates_dir = dirname(__FILE__) . '/includes/wpbakery/vc_templates/';
-				vc_set_shortcodes_templates_dir($vc_templates_dir);
-			}
-		}
-	});
-}
+} );
