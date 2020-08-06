@@ -1,19 +1,19 @@
 {
 	"name": "Shopkeeper Deprecated Features",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"download_url": "https://github.com/getbowtied/shopkeeper-deprecated/zipball/master",
 
 	"homepage": "https://themeforest.net/item/shopkeeper-ecommerce-wp-theme-for-woocommerce/9553045",
 	"requires": "5.0",
-	"tested": "5.4.2",
-	"last_updated": "2020-07-14 13:00:00",
+	"tested": "5.5",
+	"last_updated": "2020-08-06 10:00:00",
 
 	"author": "GetBowtied",
 	"author_homepage": "https://getbowtied.com/",
 
 	"sections": {
 		"description": "<p>Shopkeeper Deprecated Features is a new plugin coming with the theme offering a fallback for old features that are no longer used.</p><h4>Deprecated:</h4><ul><li>Linea Icon Font and related Icon Box element in WPBakery's Page Builder</li><li>Row and Inner Row Options for WPBakery's Page Builder</li></ul>",
-		"changelog": "<h4>1.1.4</h4><ul><li>WordPress 5.4.2 compatibility updates</li></ul><h4>1.1.3</h4><ul><li>WordPress 5.3.1 compatibility updates</li></ul><h4>1.1.2</h4><ul><li>WordPress 5.3 compatibility updates</li></ul><h4>1.1.1</h4><ul><li>Various small maintenance tasks</li></ul><h4>1.1</h4><ul><li>Added: Row and Inner Row Options for WPBakery's Page Builder</li></ul><h4>1.0</h4><ul><li>Initial Version</li></ul>"
+		"changelog": "<h4>1.1.5</h4><ul><li>WordPress 5.5 compatibility updates</li></ul><h4>1.1.4</h4><ul><li>WordPress 5.4.2 compatibility updates</li></ul><h4>1.1.3</h4><ul><li>WordPress 5.3.1 compatibility updates</li></ul><h4>1.1.2</h4><ul><li>WordPress 5.3 compatibility updates</li></ul><h4>1.1.1</h4><ul><li>Various small maintenance tasks</li></ul><h4>1.1</h4><ul><li>Added: Row and Inner Row Options for WPBakery's Page Builder</li></ul><h4>1.0</h4><ul><li>Initial Version</li></ul>"
 	},
 
 	"icons" : {
