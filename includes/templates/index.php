@@ -76,7 +76,7 @@ class SK_Deprecated_Templates {
 			'page-blank.php' => 'Blank',
 			'page-boxed.php' => 'Boxed Layout',
 			'page-full-width.php' => 'Full Width Page',
-            'page-old-default.php' => 'WPBakery Default Page',
+            'page-old-default.php' => 'Old Default Page',
 		);
 	}
 
