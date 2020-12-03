@@ -6,7 +6,14 @@ Template Name: Old Default Page
 
 <?php
 
-	$page_id = shopkeeper_get_page_id();
+	$page_id = '';
+	if ( is_single() || is_page() ) {
+		$page_id = get_the_ID();
+	} else if ( is_home() ) {
+		$page_id = get_option('page_for_posts');
+	} else if( SHOPKEEPER_WOOCOMMERCE_IS_ACTIVE && is_shop() ) {
+		$page_id = get_option( 'woocommerce_shop_page_id' );
+	}
 
     $page_header_src = "";
 
