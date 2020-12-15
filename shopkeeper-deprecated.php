@@ -32,9 +32,6 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'shopkeeper-deprecated'
 );
 
-// Deprecated Page Templates
-include_once( dirname(__FILE__) . '/includes/templates/index.php');
-
 add_action( 'after_setup_theme', function() {
 
     // Shopkeeper Dependent Components
