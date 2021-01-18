@@ -38,7 +38,7 @@ include_once( dirname(__FILE__) . '/includes/templates/index.php');
 add_action( 'after_setup_theme', function() {
 
     // Shopkeeper Dependent Components
-    if( function_exists('shopkeeper_theme_slug') ) {
+    if( class_exists('Shopkeeper') ) {
         include_once( dirname(__FILE__) . '/includes/shortcodes/icon-box.php');
 
         if ( defined(  'WPB_VC_VERSION' ) ) {

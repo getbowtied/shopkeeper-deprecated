@@ -55,8 +55,14 @@ class SK_Deprecated_Templates {
 
 		}
 
+		// Enqueue styles
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+
 		// Add a deprecated template notification to admin
 		add_action( 'admin_notices', array( $this, 'add_template_deprecated_notification' ) );
+
+		// Add editor body class
+		add_filter( 'admin_body_class', array( $this, 'add_editor_layout_class' ) );
 
 		// Add a filter to the save post to inject out template into the page cache
 		add_filter(
@@ -77,6 +83,18 @@ class SK_Deprecated_Templates {
 			'page-boxed.php' => 'Boxed Layout',
 			'page-full-width.php' => 'Full Width Page',
             'page-old-default.php' => 'Old Default Page',
+		);
+	}
+
+	/*
+	 * Register scripts.
+	 */
+	public function enqueue_styles() {
+
+		wp_enqueue_style(
+			'shopkeeper-deprecated-admin-styles',
+			plugins_url( 'assets/css/editor-styles.css', __FILE__ ),
+			NULL
 		);
 	}
 
@@ -193,6 +211,44 @@ class SK_Deprecated_Templates {
 		// Return template
 		return $template;
 
+	}
+
+	/**
+	 * Block editor layout class.
+	 *
+	 * @param string $classes
+	 * @return string
+	 */
+	function add_editor_layout_class( $classes ) {
+		global $post;
+
+		$screen = get_current_screen();
+		if( ! $screen->is_block_editor() )
+			return $classes;
+
+		if ( isset( $post ) && get_post_type($post->ID) == 'page' ) {
+			$pagetemplate = get_post_meta( $post->ID, '_wp_page_template', true );
+			if ( !empty( $pagetemplate ) ) {
+				switch ( $pagetemplate ) {
+					case 'page-boxed.php':
+						$classes .= ' page-template-boxed ';
+						break;
+					case 'page-full-width.php':
+						$classes .= ' page-template-full ';
+						break;
+					case 'page-blank.php':
+						$classes .= ' page-template-blank ';
+						break;
+					case 'page-old-default.php':
+						$classes .= ' page-template-old-default ';
+						break;
+					default:
+						break;
+				}
+			}
+		}
+
+		return $classes;
 	}
 }
 
