@@ -56,7 +56,8 @@ class SK_Deprecated_Templates {
 		}
 
 		// Enqueue styles
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 
 		// Add a deprecated template notification to admin
 		add_action( 'admin_notices', array( $this, 'add_template_deprecated_notification' ) );
@@ -87,13 +88,25 @@ class SK_Deprecated_Templates {
 	}
 
 	/*
+	 * Register admin scripts.
+	 */
+	public function enqueue_admin_styles() {
+
+		wp_enqueue_style(
+			'shopkeeper-deprecated-admin-styles',
+			plugins_url( 'assets/css/editor-styles.css', __FILE__ ),
+			NULL
+		);
+	}
+
+	/*
 	 * Register scripts.
 	 */
 	public function enqueue_styles() {
 
 		wp_enqueue_style(
-			'shopkeeper-deprecated-admin-styles',
-			plugins_url( 'assets/css/editor-styles.css', __FILE__ ),
+			'shopkeeper-deprecated-styles',
+			plugins_url( 'assets/css/styles.css', __FILE__ ),
 			NULL
 		);
 	}

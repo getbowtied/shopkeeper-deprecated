@@ -1,0 +1,23 @@
+.full-width-page {
+	.row {
+		background-repeat: no-repeat;
+		background-position: center top;
+		max-width: none;
+		padding: 0;
+	}
+
+	.boxed-row {
+		max-width: 1300px;
+		margin: 0 auto;
+
+        @media screen and (min-width: 64em) {
+            padding-left: 50px;
+    		padding-right: 50px;
+        }
+
+		.row {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
