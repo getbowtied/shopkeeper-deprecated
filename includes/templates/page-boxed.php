@@ -29,50 +29,42 @@ Template Name: Boxed Layout
 
 <?php get_header(); ?>
 
-	<div class="boxed-page <?php echo ( (isset($page_title_option)) && ($page_title_option == "on") ) ? 'page-title-shown':'page-title-hidden';?>">
+<div class="boxed-page <?php echo ( (isset($page_title_option)) && ($page_title_option == "on") ) ? 'page-title-shown':'page-title-hidden';?>">
 
-		<div class="row">
+	<div class="row">
 		<div class="large-8 columns large-centered">
 
-			<div id="primary" class="content-area">
+			<header class="entry-header <?php if ($page_header_src != "") : ?>with_featured_img<?php endif; ?>" <?php if ($page_header_src != "") : ?>style="background-image:url(<?php echo esc_url($page_header_src); ?>)"<?php endif; ?>>
 
-				<div id="content" class="site-content" role="main">
+                <div class="page_header_overlay"></div>
 
-						<header class="entry-header <?php if ($page_header_src != "") : ?>with_featured_img<?php endif; ?>" <?php if ($page_header_src != "") : ?>style="background-image:url(<?php echo esc_url($page_header_src); ?>)"<?php endif; ?>>
+                <div class="row">
+                    <div class="large-12 columns">
 
-                            <div class="page_header_overlay"></div>
+                        <?php if ( (isset($page_title_option)) && ($page_title_option == "on") ) : ?>
+                        <h1 class="page-title"><?php the_title(); ?></h1>
+                        <?php endif; ?>
 
-                            <div class="row">
-                                <div class="large-12 columns">
+                        <?php if($post->post_excerpt) : ?>
+                            <div class="page-description"><?php the_excerpt(); ?></div>
+                        <?php endif; ?>
 
-                                    <?php if ( (isset($page_title_option)) && ($page_title_option == "on") ) : ?>
-                                    <h1 class="page-title"><?php the_title(); ?></h1>
-                                    <?php endif; ?>
+                    </div>
+                </div>
 
-                                    <?php if($post->post_excerpt) : ?>
-                                        <div class="page-description"><?php the_excerpt(); ?></div>
-                                    <?php endif; ?>
+            </header><!-- .entry-header -->
 
-                                </div>
-                            </div>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-                        </header><!-- .entry-header -->
+				<div class="entry-content">
+					<?php the_content(); ?>
+				</div><!-- .entry-content -->
 
-						<?php while ( have_posts() ) : the_post(); ?>
-
-							<div class="entry-content">
-								<?php the_content(); ?>
-							</div><!-- .entry-content -->
-
-						<?php endwhile; // end of the loop. ?>
-
-				</div><!-- #content -->
-
-			</div><!-- #primary -->
+			<?php endwhile; // end of the loop. ?>
 
 		</div><!--.large-8-->
-		</div><!--.row-->
+	</div><!--.row-->
 
-	</div><!-- .boxed-page -->
+</div><!-- .boxed-page -->
 
 <?php get_footer(); ?>

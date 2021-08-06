@@ -35,56 +35,48 @@ Template Name: Old Default Page
 
 <?php get_header(); ?>
 
-    <div class="<?php echo ( (isset($page_title_option)) && ($page_title_option == "on") ) ? 'page-title-shown':'page-title-hidden';?>">
+<div class="<?php echo ( (isset($page_title_option)) && ($page_title_option == "on") ) ? 'page-title-shown':'page-title-hidden';?>">
 
-        <div id="primary" class="content-area">
+		<header class="entry-header <?php if ($page_header_src != "") : ?>with_featured_img<?php endif; ?>" <?php if ($page_header_src != "") : ?>style="background-image:url(<?php echo esc_url($page_header_src); ?>)"<?php endif; ?>>
 
-            <div id="content" class="site-content" role="main">
+        <div class="page_header_overlay"></div>
 
-           		<header class="entry-header <?php if ($page_header_src != "") : ?>with_featured_img<?php endif; ?>" <?php if ($page_header_src != "") : ?>style="background-image:url(<?php echo esc_url($page_header_src); ?>)"<?php endif; ?>>
+        <div class="row">
+            <div class="large-10 large-centered columns without-sidebar">
 
-                    <div class="page_header_overlay"></div>
+                <?php if ( (isset($page_title_option)) && ($page_title_option == "on") ) : ?>
+                <h1 class="page-title"><?php the_title(); ?></h1>
+                <?php endif; ?>
 
-                    <div class="row">
-                        <div class="large-10 large-centered columns without-sidebar">
+                <?php if($post->post_excerpt) : ?>
+                        <div class="page-description"><?php the_excerpt(); ?></div>
+                <?php endif; ?>
 
-                            <?php if ( (isset($page_title_option)) && ($page_title_option == "on") ) : ?>
-                            <h1 class="page-title"><?php the_title(); ?></h1>
-                            <?php endif; ?>
+            </div>
+        </div>
 
-                            <?php if($post->post_excerpt) : ?>
-                                    <div class="page-description"><?php the_excerpt(); ?></div>
-                            <?php endif; ?>
+    </header><!-- .entry-header -->
 
-                        </div>
-                    </div>
+    <?php while ( have_posts() ) : the_post(); ?>
 
-                </header><!-- .entry-header -->
+        <?php get_template_part( 'content', 'page' ); ?>
 
-                <?php while ( have_posts() ) : the_post(); ?>
+        <?php   if (function_exists('is_cart') && is_cart()) : ?>
+        <?php else: ?>
+        <div class="clearfix"></div>
+        <footer class="entry-meta">
+        </footer><!-- .entry-meta -->
+        <?php endif; ?>
 
-                    <?php get_template_part( 'content', 'page' ); ?>
+        <?php
 
-                    <?php   if (function_exists('is_cart') && is_cart()) : ?>
-                    <?php else: ?>
-                    <div class="clearfix"></div>
-                    <footer class="entry-meta">
-                    </footer><!-- .entry-meta -->
-                    <?php endif; ?>
+            // If comments are open or we have at least one comment, load up the comment template
+            if ( comments_open() || '0' != get_comments_number() ) comments_template();
 
-                    <?php
+        ?>
 
-                        // If comments are open or we have at least one comment, load up the comment template
-                        if ( comments_open() || '0' != get_comments_number() ) comments_template();
+    <?php endwhile; // end of the loop. ?>
 
-                    ?>
-
-                <?php endwhile; // end of the loop. ?>
-
-            </div><!-- #content -->
-
-        </div><!-- #primary -->
-
-    </div>
+</div>
 
 <?php get_footer(); ?>
