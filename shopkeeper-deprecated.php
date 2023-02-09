@@ -38,6 +38,9 @@ add_action( 'after_setup_theme', function() {
     if( function_exists('shopkeeper_theme_slug') ) {
         include_once( dirname(__FILE__) . '/includes/shortcodes/icon-box.php');
 
+        // Custom Code Section
+		include_once( dirname( __FILE__ ) . '/includes/custom-code/class-custom-code.php' );
+
         if ( defined(  'WPB_VC_VERSION' ) ) {
 
             // Icon Box VC Element
