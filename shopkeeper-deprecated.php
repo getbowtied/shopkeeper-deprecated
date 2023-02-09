@@ -4,7 +4,7 @@
  * Plugin Name:       		Shopkeeper Deprecated Features
  * Plugin URI:        		https://shopkeeper.wp-theme.design/
  * Description:       		Old features of Shopkeeper theme that are no longer used.
- * Version:           		1.1.6
+ * Version:           		1.1.7
  * Author:            		GetBowtied
  * Author URI:				https://getbowtied.com
  * Text Domain:				shopkeeper-deprecated
